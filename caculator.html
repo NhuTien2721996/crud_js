@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Caculator</title>
+    <style>
+        table {
+            width: 300px;
+            margin: 50px auto;
+            background: darkgrey;
+            padding: 15px;
+        }
+
+        #display {
+            width: 100%;
+        }
+
+        .button {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td colspan="5">
+            <input type="text" id="display">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="1" class="button" onclick="display.value+=this.value">
+        </td>
+        <td>
+            <input type="button" value="2" class="button" onclick="display.value+=this.value">
+        </td>
+        <td>
+            <input type="button" value="3" class="button" onclick="display.value+=this.value">
+        </td>
+        <td>
+            <input type="button" value="+" class="button" onclick="display.value+=this.value">
+        </td>
+        <td>
+            <input type="button" value="<--" class="button" onclick="display.value=display.value.substr(0,display.value.length-1)">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="4" class="button" onclick="display.value+=this.value">
+        </td>
+        <td>
+            <input type="button" value="5" class="button" onclick="display.value+=this.value">
+        </td>
+        <td>
+            <input type="button" value="6" class="button" onclick="display.value+=this.value">
+        </td>
+        <td>
+            <input type="button" value="-" class="button" onclick="display.value+=this.value">
+        </td>
+        <td>
+            <input type="button" value="C" class="button" onclick="display.value=''">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="7" class="button" onclick="display.value+=this.value">
+        </td>
+        <td>
+            <input type="button" value="8" class="button" onclick="display.value+=this.value">
+        </td>
+        <td>
+            <input type="button" value="9" class="button" onclick="display.value+=this.value">
+        </td>
+        <td>
+            <input type="button" value="*" class="button" onclick="display.value+=this.value">
+        </td>
+        <td>
+            <input type="button" value="=" class="button" onclick="display.value=eval(display.value)">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="0" class="button" onclick="display.value+=this.value">
+        </td>
+        <td>
+            <input type="button" value="." class="button" onclick="display.value+=this.value">
+        </td>
+        <td>
+            <input type="button" value="/" class="button" onclick="display.value+=this.value">
+        </td>
+
+    </tr>
+</table>
+</body>
+</html>

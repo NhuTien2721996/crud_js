@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="table"></div>
+<button onclick="sortTable()">Tăng dần</button>
+<script>
+    let students = [
+        {
+            code: 1,
+            name: 'Nguyễn Như Tiến1',
+            age: 25,
+            gender: 'nam',
+            literature: 7,
+            maths: 8,
+            total: 15,
+        },
+        {
+            code: 2,
+            name: 'Nguyễn Như Tiến2',
+            age: 25,
+            gender: 'nam',
+            literature: 4,
+            maths: 8,
+            total: 12,
+        },
+        {
+            code: 3,
+            name: 'Nguyễn Như Tiến4',
+            age: 25,
+            gender: 'nam',
+            literature: 4,
+            maths: 4,
+            total: 8,
+        },
+        {
+            code: 4,
+            name: 'Nguyễn Như Tiến7',
+            age: 25,
+            gender: 'nam',
+            literature: 9,
+            maths: 8,
+            total: 17,
+        },
+        {
+            code: 5,
+            name: 'Nguyễn Như Tiến6',
+            age: 25,
+            gender: 'nam',
+            literature: 5,
+            maths: 8,
+            total: 13,
+        },
+        {
+            code: 6,
+            name: 'Nguyễn Như Tiến',
+            age: 25,
+            gender: 'nam',
+            literature: 7,
+            maths: 3,
+            total: 10,
+        },
+
+        {
+            code: 7,
+            name: 'Nguyễn Như Tiến5',
+            age: 25,
+            gender: 'nam',
+            literature: 4,
+            maths: 5,
+            total: 9,
+        },
+        {
+            code: 8,
+            name: 'Nguyễn Như Tiến8',
+            age: 25,
+            gender: 'nam',
+            literature: 5,
+            maths: 5,
+            total: 10,
+        },
+        {
+            code: 9,
+            name: 'Nguyễn Như Tiến9',
+            age: 25,
+            gender: 'nam',
+            literature: 4,
+            maths: 10,
+            total: 14,
+        },
+        {
+            code: 10,
+            name: 'Nguyễn Như Tiến10',
+            age: 25,
+            gender: 'nam',
+            literature: 6,
+            maths: 6,
+            total: 12,
+        },
+    ];
+    let object;
+    let code, name, age, gender, literature, maths, total;
+    object = "<table id='myTable' border='1' width='300' cellspacing='0' cellpadding='3'>";
+    for (let i = 0; i <= students.length - 1; i++) {
+        code = "<td>" + students[i].code + "</td>";
+        name = "<td>" + students[i].name + "</td>";
+        age = "<td>" + students[i].age + "</td>";
+        gender = "<td>" + students[i].gender + "</td>";
+        literature = "<td>" + students[i].literature + "</td>";
+        maths = "<td>" + students[i].maths + "</td>";
+        total = "<td>" + students[i].total + "</td>";
+        object = object + "<tr>" + code + name + age + gender + literature + maths + total + "</tr>";
+    }
+    object += "<table>";
+    document.getElementById('table').innerHTML = object;
+
+    let max = students[0].maths;
+    for (let i = 1; i <= students.length - 1; i++) {
+        if (max < students[i].maths)
+            max = students[i].maths;
+    }
+        function sortTable() {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("myTable");
+            switching = true;
+            /*Make a loop that will continue until
+            no switching has been done:*/
+            while (switching) {
+                //start by saying: no switching is done:
+                switching = false;
+                rows = table.rows;
+                /*Loop through all table rows (except the
+                first, which contains table headers):*/
+                for (i = 0; i < (rows.length - 1); i++) {
+                    //start by saying there should be no switching:
+                    shouldSwitch = false;
+                    /*Get the two elements you want to compare,
+                    one from current row and one from the next:*/
+                    x = rows[i].getElementsByTagName("TD")[1];
+                    y = rows[i + 1].getElementsByTagName("TD")[1];
+                    //check if the two rows should switch place:
+                    if (x.innerHTML > y.innerHTML) {
+                        //if so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    /*If a switch has been marked, make the switch
+                    and mark that a switch has been done:*/
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+        }
+
+</script>
+</body>
+</html>

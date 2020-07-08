@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+    <style>
+        #wrapper{
+            width: 500px;
+            margin: 100px auto;
+        }
+        .oco{
+            width: 20px;
+            height: 20px;
+            background-color: yellow;
+            border: 1px solid black;
+            float: left;
+            text-align: center;
+        }
+        body{
+            background-color: black;
+        }
+    </style>
+
+</head>
+<body>
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+<button id="toggle">Toggle</button>
+<div id="wrapper"></div>
+<script>
+    let turn=0;
+    $(document).ready(function () {
+        for (let i=1;i<=308;i++)
+        $('#wrapper').append('<div class="oco"></div>');
+        $('.oco').mouseover(function () {
+            $(this).css("background-color","green");
+        });
+        $('.oco').mouseout(function () {
+            $(this).css("background-color","yellow");
+        });
+        $('.oco').click(function () {
+           if ($(this).html()===""){
+              turn+=1;
+               if (turn%2===1){
+                   $(this).html('X');
+               }else {
+                   $(this).html('O')
+               }
+           }else {
+               alert('ô này đã được chọn');
+           }
+        });
+        $('#hide').click(function () {
+            $('#wrapper').hide();
+        });
+        $('#show').click(function () {
+            $('#wrapper').show();
+        });
+        $('#toggle').click(function () {
+            $('#wrapper').toggle();
+        })
+    })
+</script>
+</body>
+</html>

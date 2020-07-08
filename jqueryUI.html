@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css">
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+
+    <script
+            src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+            integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+            crossorigin="anonymous"></script>
+    <style>
+        #my-prb {
+            position: relative;
+        }
+
+        #my-prb-label {
+            position: absolute;
+            top: 6%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+<a href="javascript:StarProgressbar()">Bắt đầu</a>
+<div id="my-prb">
+    <p id="my-prb-label">
+        Loading...
+    </p>
+</div>
+<hr>
+<div>
+    <p>Nhập ngày sinh của bạn</p>
+    <input type="text" id="datepicker">
+</div>
+<hr>
+<div id="my_accordion">
+    <h3>Tiêu đề 1</h3>
+    <div>Nội dung 1</div>
+    <h3>Tiêu đề 2</h3>
+    <div>Nội dung 2</div>
+    <h3>Tiêu đề 3</h3>
+    <div>Nội dung 3</div>
+</div>
+<hr>
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">Tiêu đề 1</a></li>
+        <li><a href="#tabs-2">Tiêu đề 2</a></li>
+    </ul>
+    <div id="tabs-1">Nội dung tabs-1</div>
+    <div id="tabs-2"></div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#my-prb').progressbar({
+            value: false,
+            change: function () {
+                let c_value = $('#my-prb').progressbar("value");
+                $('#my-prb-label').html(c_value + "%")
+            },
+            complete: function () {
+                $('#my-prb-label').html("Đã xong")
+            }
+        });
+        $("#datepicker").datepicker({
+            dateFormat: "dd/mm/yy",
+            maxDate: "now",
+        });
+        $('#my_accordion').accordion({
+            heighStyle:"fill",
+        });
+        $('#tabs').tabs({
+            collapsible:false,
+        })
+    });
+
+    function StarProgressbar() {
+        let c_value = $('#my-prb').progressbar("value") + 1;
+        $('#my-prb').progressbar("value", c_value);
+        if (c_value < 100) {
+            setTimeout("StarProgressbar()", 100);
+        }
+    }
+</script>
+
+</body>
+</html>
