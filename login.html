@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<!--    <link rel="stylesheet" href="/resources/demos/style.css">-->
     <script
             src="https://code.jquery.com/jquery-3.5.1.js"
             integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
@@ -45,12 +44,15 @@
             <p>Tài khoản</p>
             <input type="text" id="user_name" name="user_name" class="form-control">
             <p>Mật khẩu</p>
-            <input type="password" id="password" name="password" class="form-control">
+            <input type="password" id="password" name="password"  class="form-control">
             <p id="noti"></p>
             <button value="Login" id="Login" onclick="login();return false;">Login</button>
             <button id="logout" style="display: none">Logout</button>
         </div>
     </form>
+    <div id="dialog" style="display: none">
+        <h4>Đăng nhập thành công</h4>
+    </div>
 </div>
 <div>
 </div>
@@ -68,13 +70,13 @@
             $('#password').css("border", "1px solid red");
         } else if (user_name === _user && password === _password) {
             document.getElementById('noti').innerHTML = "Bạn đã đăng nhập thành công";
-            // $('#noti').dialog();
             $('#noti').css("background-color", "green");
             $('#noti').css("color", "white");
-            $('#user_name').css("border", "none");
-            $('#password').css("border", "none");
+            $('#user_name').css("border", "1px solid #ced4da");
+            $('#password').css("border", "1px solid #ced4da");
             $('#Login').hide();
             $('#logout').show();
+
         } else {
             document.getElementById('noti').innerHTML = "Tài khoản hoặc mật khẩu không đúng";
             $('#noti').css("color", "red");

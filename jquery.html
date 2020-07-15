@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+    <style>
+        #content {
+            width: 200px;
+            float: left;
+        }
+
+        #cart {
+            clear: left;
+        }
+    </style>
+    <title>Jquery</title>
+</head>
+<body>
+<div id="product"></div>
+<table class="table table-striped" style="clear: left">
+    <thead>
+    <tr>
+        <th scope="col">Tên sản phẩm</th>
+        <th scope="col">Giá</th>
+        <th scope="col">Số lượng</th>
+        <th scope="col">Xóa</th>
+    </tr>
+    </thead>
+    <tbody id="data">
+
+    </tbody>
+</table>
+<div style="margin-top: 50px">
+    <input type="checkbox" name="gender" value="nam"><label>Nam</label>
+    <input type="checkbox" name="gender" value="nu"><label>Nu</label>
+
+    <div id="result"></div>
+    <button id="btn">Xem ket qua</button>
+</div>
+<div id="menu" style="margin-top: 50px">
+    <img src="data:image/jpeg;base64,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"
+         id="img" alt="">
+    <div>
+        <label>Chiều rộng</label>
+        <input type="text" id="width">
+        <label>Chiều cao</label>
+        <input type="text" id="height">
+        <input type="button" value="Apply" id="setSize" onclick="setSize(this) ">
+    </div>
+</div>
+<script>
+
+
+    function setSize() {
+        let _height = document.getElementById('height').value;
+        let _width = document.getElementById('width').value;
+        let a = _height + "px";
+        let b = _width + "px";
+        $(this).click(function () {
+            $("#img").css("height", a);
+            $("#img").css("width", b);
+        });
+
+    }
+</script>
+<script>
+    let products = [
+        {
+            id: 1,
+            name: "ip 6s",
+            price: 6000,
+
+        },
+        {
+            id: 2,
+            name: "ip 7",
+            price: 7000,
+
+        }
+    ];
+    let dataProduct = document.getElementById('product');
+    let dataCart = document.getElementById('data');
+    let shopCart = [];
+
+
+    function displayProduct() {
+        for (let i = 0; i < products.length; i++) {
+            dataProduct.innerHTML += "<div id='content'>" +
+                "<div class='name'> <span>Tên sản phẩm: </span>" +
+                "<span>" + products[i].name + "</span>" + "</div>" +
+                "<div class='price'> <span>Giá :</span>" +
+                "<span>" + products[i].price + "</span>" + "</div>" +
+                "<div class='button'>" + "<button onclick='addToCart(" + products[i].id + ")' class='btn'>Thêm vào giỏ hàng</button>" +
+                "</div></div>";
+        }
+    }
+
+    displayProduct();
+
+    function addToCart(id) {
+        let product = products.filter(function (item) {
+            return item.id === id;
+        })[0];
+        let index = -1;
+        for (let i = 0; i < shopCart.length; i++) {
+            if (product.id === shopCart[i].id) {
+                index = i;
+            }
+        }
+        if (index < 0) {
+            product.amount = 1;
+            shopCart.push(product);
+        } else {
+            shopCart[index].amount += 1;
+        }
+
+        console.log(shopCart);
+        getAll();
+    }
+
+    function getAll() {
+        dataCart.innerHTML = "";
+        for (let i = 0; i < shopCart.length; i++) {
+            dataCart.innerHTML += "<tr>" +
+                "<td>" + (shopCart[i].name) + "</td>" +
+                "<td>" + (shopCart[i].price) + "</td>" +
+                "<td>" + (shopCart[i].amount) + "</td>" +
+                "<td><button onclick='destroy(" + (i) + ")'>Xóa</button></td>" +
+                "</tr>";
+        }
+    }
+
+    function destroy(id) {
+        if (shopCart[id].amount === 1) {
+            shopCart.splice(id, 1);
+        } else {
+            shopCart[id].amount--;
+        }
+        getAll();
+    }
+
+</script>
+<script>
+    let checkbox = document.getElementsByName('gender');
+    let result = "";
+    $('#btn').click(function () {
+        for (let i = 0; i < checkbox.length; i++) {
+            if (checkbox[i].checked === true) {
+                document.getElementById('result').innerHTML = result += checkbox[i].value + " ";
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

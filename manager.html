@@ -31,14 +31,18 @@
             <div class="form-group">
                 <label for="name">Họ và tên</label>
                 <input type="text" class="form-control" id="name">
+                <span id="error_name" style="color: red"></span>
             </div>
             <div class="form-group">
                 <label for="age">Tuổi</label>
                 <input type="text" class="form-control" id="age">
+                <span id="error_age" style="color: red"></span>
+
             </div>
             <div class="form-group">
                 <label for="group">Lớp</label>
                 <input type="text" class="form-control" id="group">
+                <span id="error_group" style="color: red"></span>
             </div>
             <button onclick="create();return false" class="btn btn-primary" id="btn-update">Thêm</button>
         </form>

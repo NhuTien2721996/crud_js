@@ -59,6 +59,14 @@
     <div id="tabs-1">Nội dung tabs-1</div>
     <div id="tabs-2"></div>
 </div>
+<button onclick="openDialog()">Đăng nhập</button>
+<div id="dialog" style="display: none">
+    <label>Tài khoản</label>
+    <input type="text">
+    <label style="display: block">Mật khẩu</label>
+    <input type="text">
+    <button>Đăng nhập</button>
+</div>
 <script>
     $(document).ready(function () {
         $('#my-prb').progressbar({
@@ -89,6 +97,13 @@
         if (c_value < 100) {
             setTimeout("StarProgressbar()", 100);
         }
+    }
+
+    function openDialog() {
+        $('#dialog').dialog({
+            modal:true,
+            title: "Form đăng nhập",
+        })
     }
 </script>
 

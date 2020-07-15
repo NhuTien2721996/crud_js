@@ -16,8 +16,28 @@ function create() {
         "age": age,
         "group": group
     };
-    if (curIndex===-1){
+    if (name===""){
+        document.getElementById('error_name').innerHTML="* Vui lòng nhập đầy đủ họ và tên";
+        $("#name").css("border","1px solid red");
+    }
+    if (age===""){
+        document.getElementById('error_age').innerHTML="* Vui lòng nhập tuổi";
+        $("#age").css("border","1px solid red");
+    }
+    if (group===""){
+        document.getElementById('error_group').innerHTML="* Vui lòng nhập lớp";
+        $("#group").css("border","1px solid red");
+    }
+    if (curIndex===-1 && name && age && group){
         add(student);
+        $("#name").css("border","1px solid #ced4da");
+        $("#age").css("border","1px solid #ced4da");
+        $("#group").css("border","1px solid #ced4da");
+        document.getElementById('error_group').innerHTML="";
+        document.getElementById('error_age').innerHTML="";
+        document.getElementById('error_name').innerHTML="";
+
+
     }else {
         dataList[curIndex]=student;
         curIndex=-1;
@@ -28,7 +48,7 @@ function create() {
 }
 function displayAll() {
     dataListTag.innerHTML="";
-    for (i=0;i<dataList.length;i++){
+    for (let i=0;i<dataList.length;i++){
         let student=dataList[i];
         dataListTag.innerHTML += "<tr>" +
             "<td>" + (i+1) + "</td>" +

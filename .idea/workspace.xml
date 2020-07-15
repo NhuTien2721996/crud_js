@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c4a6706b-ad83-47e9-ab41-06f273853360" name="Default Changelist" comment="" />
+    <list default="true" id="c4a6706b-ad83-47e9-ab41-06f273853360" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/caculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/caculator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/caro.html" beforeDir="false" afterPath="$PROJECT_DIR$/caro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jqueryUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/jqueryUI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/manager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object.html" beforeDir="false" afterPath="$PROJECT_DIR$/object.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,16 +23,29 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\Administrator\Desktop\test\.idea" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectId" id="1dPHwRixxpxGg8VuaN6QAvFu3F2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -34,14 +59,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.manager.html">
-    <configuration name="caculator.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/test/caculator.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/test/index.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JavaScript Debug.jquery.html">
     <configuration name="jqueryUI.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/test/jqueryUI.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="jquery.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/test/jquery.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="login.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/test/login.html" useBuiltInWebServerPort="true">
@@ -50,13 +72,16 @@
     <configuration name="manager.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/test/manager.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
+    <configuration name="new.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/test/new.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.jquery.html" />
         <item itemvalue="JavaScript Debug.manager.html" />
         <item itemvalue="JavaScript Debug.jqueryUI.html" />
-        <item itemvalue="JavaScript Debug.caculator.html" />
-        <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JavaScript Debug.login.html" />
+        <item itemvalue="JavaScript Debug.new.html" />
       </list>
     </recent_temporary>
   </component>
@@ -86,11 +111,35 @@
       <workItem from="1594083759721" duration="11693000" />
       <workItem from="1594096602803" duration="15991000" />
       <workItem from="1594133148432" duration="3925000" />
-      <workItem from="1594170497573" duration="9754000" />
+      <workItem from="1594170497573" duration="21205000" />
+      <workItem from="1594198627144" duration="728000" />
+      <workItem from="1594257009637" duration="28890000" />
+      <workItem from="1594302412950" duration="8186000" />
+      <workItem from="1594362955094" duration="9664000" />
+      <workItem from="1594429502173" duration="14426000" />
+      <workItem from="1594444099202" duration="403000" />
+      <workItem from="1594560891548" duration="6619000" />
+      <workItem from="1594602612758" duration="27614000" />
+      <workItem from="1594646948275" duration="1484000" />
+      <workItem from="1594688582680" duration="28585000" />
+      <workItem from="1594774941006" duration="1841000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

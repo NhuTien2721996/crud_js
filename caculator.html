@@ -7,19 +7,37 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Caculator</title>
     <style>
+        body {
+            background-color: black;
+        }
+
+        #display, #result {
+            border: none;
+            width: 95%;
+        }
+
         table {
             width: 300px;
+            height: 250px;
             margin: 50px auto;
             background: darkgrey;
             padding: 15px;
         }
 
-        #display {
-            width: 100%;
-        }
 
         .button {
-            width: 100%;
+            /*width: 100%;*/
+            width: 40px;
+            height: 30px;
+
+        }
+
+        #display, #result {
+            text-align: right;
+        }
+
+        tr > td {
+            text-align: center;
         }
     </style>
 </head>
@@ -28,6 +46,7 @@
     <tr>
         <td colspan="5">
             <input type="text" id="display">
+            <input type="text" id="result" value="0">
         </td>
     </tr>
     <tr>
@@ -44,7 +63,8 @@
             <input type="button" value="+" class="button" onclick="display.value+=this.value">
         </td>
         <td>
-            <input type="button" value="<--" class="button" onclick="display.value=display.value.substr(0,display.value.length-1)">
+            <input type="button" value="<--" class="button"
+                   onclick="display.value=display.value.substr(0,display.value.length-1)">
         </td>
     </tr>
     <tr>
@@ -61,7 +81,7 @@
             <input type="button" value="-" class="button" onclick="display.value+=this.value">
         </td>
         <td>
-            <input type="button" value="C" class="button" onclick="display.value=''">
+            <input type="button" value="C" class="button" onclick="clearAll()">
         </td>
     </tr>
     <tr>
@@ -78,8 +98,10 @@
             <input type="button" value="*" class="button" onclick="display.value+=this.value">
         </td>
         <td>
-            <input type="button" value="=" class="button" onclick="display.value=eval(display.value)">
+            <input type="button" value="sqrt" class="button" onclick="sqrt()">
         </td>
+
+
     </tr>
     <tr>
         <td>
@@ -91,8 +113,40 @@
         <td>
             <input type="button" value="/" class="button" onclick="display.value+=this.value">
         </td>
-
+        <td>
+            <input type="button" value="ans" class="button" onclick="ans()">
+        </td>
+        <td>
+            <input type="button" value="=" class="button" onclick="calculate()">
+        </td>
     </tr>
 </table>
+<script>
+    let result;
+    let number;
+
+    function sqrt() {
+        let a = document.getElementById('display').value;
+        result = Math.sqrt(a);
+        document.getElementById('result').value = result;
+    }
+
+    function ans() {
+        document.getElementById('display').value = "";
+        document.getElementById('display').value = result;
+    }
+
+    function clearAll() {
+        document.getElementById('display').value = "";
+        document.getElementById('result').value = "0";
+
+    }
+
+    function calculate() {
+        number = document.getElementById('display').value;
+        result = eval(number);
+        document.getElementById('result').value = result;
+    }
+</script>
 </body>
 </html>

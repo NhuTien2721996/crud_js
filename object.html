@@ -5,11 +5,36 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
-<div id="table"></div>
-<button onclick="sortTable()">Tăng dần</button>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Mã SV</th>
+        <th scope="col">Họ và tên</th>
+        <th scope="col">Tuổi</th>
+        <th scope="col">Giới tính</th>
+        <th scope="col">Điểm văn</th>
+        <th scope="col">Điểm toán</th>
+        <th scope="col">Tổng điểm</th>
+    </tr>
+    </thead>
+    <tbody id="data">
+    </tbody>
+</table>
+<button onclick="upMaths()">Điểm toán tăng dần</button>
+<button onclick="downMaths()">Điểm toán giảm dần</button>
+<button onclick="upLiterature()">Điểm văn tăng dần</button>
+<button onclick="downLiterature()">Điểm văn giảm dần</button>
+<button onclick="upTotal()">Tổng điểm tăng dần</button>
+<button onclick="downTotal()">Tổng điểm giảm dần</button>
+
+<div id="top_literature"></div>
+<div id="top_maths"></div>
+<div id="top_total"></div>
 <script>
     let students = [
         {
@@ -104,62 +129,94 @@
             total: 12,
         },
     ];
-    let object;
-    let code, name, age, gender, literature, maths, total;
-    object = "<table id='myTable' border='1' width='300' cellspacing='0' cellpadding='3'>";
-    for (let i = 0; i <= students.length - 1; i++) {
-        code = "<td>" + students[i].code + "</td>";
-        name = "<td>" + students[i].name + "</td>";
-        age = "<td>" + students[i].age + "</td>";
-        gender = "<td>" + students[i].gender + "</td>";
-        literature = "<td>" + students[i].literature + "</td>";
-        maths = "<td>" + students[i].maths + "</td>";
-        total = "<td>" + students[i].total + "</td>";
-        object = object + "<tr>" + code + name + age + gender + literature + maths + total + "</tr>";
-    }
-    object += "<table>";
-    document.getElementById('table').innerHTML = object;
+    let dataListTag = document.getElementById('data');
+    let maxLiterature = students[0].literature;
+    let maxMaths = students[0].maths;
+    let maxTotal = students[0].total;
+    displayAll();
 
-    let max = students[0].maths;
-    for (let i = 1; i <= students.length - 1; i++) {
-        if (max < students[i].maths)
-            max = students[i].maths;
-    }
-        function sortTable() {
-            var table, rows, switching, i, x, y, shouldSwitch;
-            table = document.getElementById("myTable");
-            switching = true;
-            /*Make a loop that will continue until
-            no switching has been done:*/
-            while (switching) {
-                //start by saying: no switching is done:
-                switching = false;
-                rows = table.rows;
-                /*Loop through all table rows (except the
-                first, which contains table headers):*/
-                for (i = 0; i < (rows.length - 1); i++) {
-                    //start by saying there should be no switching:
-                    shouldSwitch = false;
-                    /*Get the two elements you want to compare,
-                    one from current row and one from the next:*/
-                    x = rows[i].getElementsByTagName("TD")[1];
-                    y = rows[i + 1].getElementsByTagName("TD")[1];
-                    //check if the two rows should switch place:
-                    if (x.innerHTML > y.innerHTML) {
-                        //if so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-                if (shouldSwitch) {
-                    /*If a switch has been marked, make the switch
-                    and mark that a switch has been done:*/
-                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                    switching = true;
-                }
+    function displayAll() {
+        for (let i = 0; i < students.length; i++) {
+            dataListTag.innerHTML += "<tr>" +
+                "<td>" + students[i].code + "</td>" +
+                "<td>" + students[i].name + "</td>" +
+                "<td>" + students[i].age + "</td>" +
+                "<td>" + students[i].gender + "</td>" +
+                "<td>" + students[i].literature + "</td>" +
+                "<td>" + students[i].maths + "</td>" +
+                "<td>" + students[i].total + "</td>" + "</tr>";
+            if (maxLiterature < students[i].literature) {
+                maxLiterature = students[i].literature;
+                document.getElementById('top_literature').innerHTML = " Người có điểm văn cao nhất là: " + students[i].name + " với điểm số là " + students[i].literature;
+            }
+            if (maxMaths < students[i].maths) {
+                maxMaths = students[i].maths;
+                document.getElementById('top_maths').innerHTML = " Người có điểm toán cao nhất là: " + students[i].name + " với điểm số là " + students[i].maths;
+            }
+            if (maxTotal < students[i].total) {
+                maxTotal = students[i].total;
+                document.getElementById('top_total').innerHTML = " Người có tổng điểm cao nhất là: " + students[i].name + " với điểm số là " + students[i].total;
             }
         }
+    }
+
+    function upMaths() {
+        dataListTag.innerHTML = "";
+        students.sort(function (a, b) {
+            return b.maths - a.maths;
+        });
+        displayAll();
+    }
+
+    function downMaths() {
+        dataListTag.innerHTML = "";
+        students.sort(function (a, b) {
+            return a.maths - b.maths;
+        });
+        displayAll();
+    }
+
+    function upLiterature() {
+        dataListTag.innerHTML = "";
+        students.sort(function (a, b) {
+            return b.literature - a.literature;
+        });
+        displayAll();
+    }
+
+    function downLiterature() {
+        dataListTag.innerHTML = "";
+        students.sort(function (a, b) {
+            return a.literature - b.literature;
+        });
+        displayAll();
+    }
+    function upTotal() {
+        dataListTag.innerHTML = "";
+        students.sort(function (a, b) {
+            return b.total - a.total;
+        });
+        displayAll();
+    }
+
+    function downTotal() {
+        dataListTag.innerHTML = "";
+        students.sort(function (a, b) {
+            return a.total - b.total;
+        });
+        displayAll();
+    }
 
 </script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
 </html>
